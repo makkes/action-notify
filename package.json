@@ -1,0 +1,24 @@
+{
+  "name": "action-notify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "enytrypoint.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makkes/action-notify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makkes/action-notify/issues"
+  },
+  "homepage": "https://github.com/makkes/action-notify#readme",
+  "dependencies": {
+    "@actions/core": "^1.1.1",
+    "@actions/github": "^1.1.0"
+  }
+}

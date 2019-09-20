@@ -1,5 +1,5 @@
 name: "Notify"
 description: "Notify a Slack channel on certain events"
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: "node12"
+  main: "index.js"
