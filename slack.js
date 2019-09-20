@@ -1,5 +1,4 @@
 const request = require('request')
-require('request-debug')(request);
 
 module.exports.sendMessage = (url, message, cb) => {
     request.post(url).form(JSON.stringify({ text: message }))
