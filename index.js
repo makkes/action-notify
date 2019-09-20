@@ -7,7 +7,7 @@ const messages = context => {
         case 'issues':
             return issueAction
         default:
-            throw 'unknown event'
+            throw `unknown event: ${context.eventName}`
     }
 }
 
