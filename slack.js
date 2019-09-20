@@ -1,7 +1,6 @@
 const request = require('request')
 
 module.exports.sendMessage = (url, message, cb) => {
-    console.log(JSON.stringify({ text: message }))
     request({
         url: url,
         method: 'POST',
