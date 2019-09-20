@@ -7,12 +7,8 @@ const messages = context => {
         case 'issues':
             return issueAction
         default:
-            return defaultAction
+            throw 'unknown event'
     }
-}
-
-const defaultAction = () => {
-    return 'unknown event'
 }
 
 const issueAction = (payload) => {
