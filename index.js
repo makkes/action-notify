@@ -3,6 +3,7 @@ const github = require('@actions/github');
 const slack = require('./slack.js')
 
 const messages = context => {
+    console.log('Context: ', JSON.stringify(context))
     switch (context.eventName) {
         case 'issues':
             return issueAction
@@ -18,7 +19,6 @@ const issueAction = (payload) => {
 }
 
 const pullRequestAction = (payload) => {
-    console.log('Payload: ', JSON.stringify(payload))
     return `PR <${payload.pull_request.html_url}|${payload.pull_request.title}> has been ${payload.action}`
 }
 
