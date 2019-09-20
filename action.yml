@@ -1,5 +1,9 @@
 name: "Notify"
 description: "Notify a Slack channel on certain events"
+inputs:
+  slack-url:
+    description: "The URL of the Slack webhook"
+    required: true
 runs:
   using: "node12"
   main: "index.js"

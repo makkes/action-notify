@@ -7,6 +7,7 @@ try {
     console.log(`The event payload: ${payload}`);
     console.log('The environment: ')
     console.log(process.env)
+    console.log('The Slack URL: ', core.getInput('slack-url'))
 } catch (error) {
     core.setFailed(error.message);
 }
