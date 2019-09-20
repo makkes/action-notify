@@ -6,6 +6,8 @@ const messages = context => {
     switch (context.eventName) {
         case 'issues':
             return issueAction
+        case 'pull_request':
+            return pullRequestAction
         default:
             throw `unknown event: ${context.eventName}`
     }
@@ -13,6 +15,10 @@ const messages = context => {
 
 const issueAction = (payload) => {
     return `Issue <${payload.issue.html_url}|${payload.issue.title}> has been ${payload.action}`
+}
+
+const pullRequestAction = (payload) => {
+    return `PR <${payload.pull_request.html_url}|${payload.pull_request.title}> has been ${payload.action}`
 }
 
 try {
