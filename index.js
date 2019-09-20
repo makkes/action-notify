@@ -2,18 +2,25 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const slack = require('./slack.js')
 
-messages = {
-    'issue': issueAction
+const messages = context => {
+    switch (context.eventName) {
+        case 'issues':
+            return issueAction
+        default:
+            return defaultAction
+    }
 }
 
-function issueAction(payload) {
+const defaultAction = () => {
+    return 'unknown event'
+}
+
+const issueAction = (payload) => {
     return `Issue <${payload.issue.html_url}|${payload.issue.title}> has been ${payload.action}`
 }
 
 try {
-    console.log('Context: ', github.context)
-    const payload = github.context.payload
-    slack.sendMessage(core.getInput('slack-url'), 'test', err => {
+    slack.sendMessage(core.getInput('slack-url'), messages(github.context)(github.context.payload), err => {
         if (typeof err !== 'undefined') {
             core.setFailed(err)
         }
