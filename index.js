@@ -4,7 +4,7 @@ const slack = require('./slack.js')
 
 try {
     const payload = github.context.payload
-    slack.sendMessage(core.getInput('slack-url'), `Issue <'${payload.issue.html_url}'|'"${payload.issue.title}"'> has been '${payload.action}'`, err => {
+    slack.sendMessage(core.getInput('slack-url'), `Issue <${payload.issue.html_url}|${payload.issue.title}> has been ${payload.action}`, err => {
         if (typeof err !== 'undefined') {
             core.setFailed(err)
         }
