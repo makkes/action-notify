@@ -19,6 +19,8 @@
   "homepage": "https://github.com/makkes/action-notify#readme",
   "dependencies": {
     "@actions/core": "^1.1.1",
-    "@actions/github": "^1.1.0"
+    "@actions/github": "^1.1.0",
+    "request": "^2.88.0",
+    "request-debug": "^0.2.0"
   }
 }

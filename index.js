@@ -1,13 +1,12 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const slack = require('./slack.js')
 
 try {
-    // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
-    console.log('The environment: ')
-    console.log(process.env)
-    console.log('The Slack URL: ', core.getInput('slack-url'))
+    slack.sendMessage(core.getInput('slack-url'), `Issue <'${payload.issue.html_url}'|'"${payload.issue.title}"'> has been '${payload.action}'`, err => {
+        core.setFailed(err)
+    })
 } catch (error) {
     core.setFailed(error.message);
 }
