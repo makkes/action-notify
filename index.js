@@ -18,6 +18,7 @@ const issueAction = (payload) => {
 }
 
 const pullRequestAction = (payload) => {
+    console.log('Payload: ', JSON.stringify(payload))
     return `PR <${payload.pull_request.html_url}|${payload.pull_request.title}> has been ${payload.action}`
 }
 
